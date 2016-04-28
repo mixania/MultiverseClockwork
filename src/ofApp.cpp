@@ -285,7 +285,7 @@ void ofApp::draw(){
   }
 
   // Animation 6
-    else if (ofGetElapsedTimeMillis() < 180000) {
+    else if (ofGetElapsedTimeMillis() < 170000) {
 
       rotation += 0.5;
       ofRotate(rotation, 0, 0, 1);
@@ -358,14 +358,26 @@ void ofApp::draw(){
   // Animation 7
   // Clock
   else if (ofGetElapsedTimeMillis() < 190000) {
-    ofSetColor(255,165, 0);
+
+    int hourHand = ofMap(loopCount % 60, 0, 60, 0, 12);
+
     float angle = incrementalAngle;
     for(int i = 0; i < 12; i++){
-      ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2,100 * sin(incrementalAngle) + ofGetWidth()/2, circleSize, circleSize);
+      if (hourHand == i) {
+        // hightlight clock color
+        ofSetColor(255,165, 0, 255);
+      } else {
+        // the rest of the 11 digits,
+        ofSetColor(255,165, 0, 120);
+      }
 
+      ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 + 150,100 * sin(incrementalAngle) + ofGetWidth()/2 - 100, circleSize, circleSize);
       incrementalAngle += 6.2831853071795 / 12;
     }
   }
+  // Animation 8
+  // Multiple Clocks
+
 }
 
 //--------------------------------------------------------------
