@@ -6,16 +6,16 @@ void ofApp::setup(){
   mySound.play();
   mySound.setVolume(0.8);
 
-  // animation startTimes:
-  animation1Time = 22000;
-  animation2Time = 32000;
-  animation3Time = 50000;
+  // animation end times:
+  animation1Time = 20000;
+  animation2Time = 35000;
+  animation3Time = 54000;
   animation4aTime = 60000;
   animation4bTime = 75000;
   animation4cTime = 90000;
-  animation5aTime = 110000;
-  animation5bTime = 130000;
-  animation5cTime = 150000;
+  animation5aTime = 117000;
+  animation5bTime = 125000;
+  animation5cTime = 122000;
   animation6Time = 170000;
   animation7Time = 190000;
 
@@ -103,8 +103,8 @@ void ofApp::draw(){
     // reality within reality circles
     for (int v = 0; v < 1 + (var/100); v ++) {
       // spreading circles
-      for (int i = 0; i < 4; i ++) {
-        for (int j = 0; j < 4; j ++) {
+      for (int i = 0; i < 7; i ++) {
+        for (int j = 0; j < 7; j ++) {
           ofSetColor(255,165, 0);
 
           ofDrawEllipse(ofGetWidth()/2 + var*i, ofGetHeight()/2 + var*j, circleSize, circleSize);
@@ -125,7 +125,7 @@ void ofApp::draw(){
   }
 
   // Animation 4a
-  // closing and opening sqaures
+  // closing and opening circles
   else if (ofGetElapsedTimeMillis() < animation4aTime) {
     int clock1 = (loopCount % 100);
     int clock2 = ((loopCount - 50) % 100);
@@ -156,7 +156,7 @@ void ofApp::draw(){
   }
 
   // Animation 4b
-  // growing sqaures
+  // growing circles
   else if (ofGetElapsedTimeMillis() < animation4bTime) {
     int clock1 = (loopCount % 100);
     int clock2 = ((loopCount - 50) % 100);
