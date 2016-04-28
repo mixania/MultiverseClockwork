@@ -26,6 +26,7 @@ class ofApp : public ofBaseApp{
 
 		// aniamtion 1
 		int fadeIn;
+		int circleSize;
 
 		// animation 2
 		int fadeIn2;
@@ -35,10 +36,13 @@ class ofApp : public ofBaseApp{
 
 		// animation 4a
 		int var2;
-		int circleSize;
 		float rotation;
 
 		// animation 4b and 4c
 		int arrayLengths;
+
+		// animation 5
+
+		int minus;
 
 };
