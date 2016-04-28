@@ -180,7 +180,11 @@ void ofApp::draw(){
 
     if (clock1 < clock2) {
       var2 ++;
+      inverse = true;
+      ofSetColor(0,0, 0);
     } else {
+      inverse = false;
+      ofSetColor(255,165, 0);
       if (var > 30) {
         var2 --;
       }
@@ -196,7 +200,6 @@ void ofApp::draw(){
 
     for (int i = 0; i < arrayLengths; i ++) {
       for (int j = 0; j < arrayLengths; j ++) {
-        ofSetColor(255,165, 0);
 
         // draw
         ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 + var2*j, randomCircleSize, randomCircleSize);
@@ -210,6 +213,19 @@ void ofApp::draw(){
 
   // Animation 5a
   else if (ofGetElapsedTimeMillis() < 110000) {
+
+    int clock1 = (loopCount % 300);
+    int clock2 = ((loopCount - 150) % 300);
+
+    if (clock1 < clock2) {
+      inverse = true;
+      ofSetColor(0,0, 0);
+    } else {
+      if (var > 30) {
+        inverse = false;
+        ofSetColor(255,165, 0);
+      }
+    }
 
     var2 = 100;
 
@@ -225,7 +241,6 @@ void ofApp::draw(){
 
     for (int i = 0; i < 50; i ++) {
       for (int j = 0; j < 50; j ++) {
-        ofSetColor(255,165, 0);
 
         // draw
         ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
@@ -240,6 +255,19 @@ void ofApp::draw(){
   // Animation 5b
   else if (ofGetElapsedTimeMillis() < 130000) {
 
+    int clock1 = (loopCount % 300);
+    int clock2 = ((loopCount - 150) % 300);
+
+    if (clock1 < clock2) {
+      inverse = true;
+      ofSetColor(0,0, 0);
+    } else {
+      if (var > 30) {
+        inverse = false;
+        ofSetColor(255,165, 0);
+      }
+    }
+
     rotation += 0.5;
     ofRotate(rotation, 0, 1, 0);
 
@@ -252,7 +280,6 @@ void ofApp::draw(){
 
     for (int i = 0; i < 50; i ++) {
       for (int j = 0; j < 50; j ++) {
-        ofSetColor(255,165, 0);
 
         // draw
         ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
@@ -267,6 +294,19 @@ void ofApp::draw(){
   // Animation 5c
   else if (ofGetElapsedTimeMillis() < 150000) {
 
+    int clock1 = (loopCount % 300);
+    int clock2 = ((loopCount - 150) % 300);
+
+    if (clock1 < clock2) {
+      inverse = true;
+      ofSetColor(0,0, 0);
+    } else {
+      if (var > 30) {
+        inverse = false;
+        ofSetColor(255,165, 0);
+      }
+    }
+
     rotation += 0.5;
     ofRotate(rotation, 0, 0, 1);
 
@@ -279,7 +319,6 @@ void ofApp::draw(){
 
     for (int i = 0; i < 50; i ++) {
       for (int j = 0; j < 50; j ++) {
-        ofSetColor(255,165, 0);
 
         // draw
         ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
@@ -294,6 +333,19 @@ void ofApp::draw(){
   // Animation 6
     else if (ofGetElapsedTimeMillis() < 170000) {
 
+      int clock1 = (loopCount % 300);
+      int clock2 = ((loopCount - 150) % 300);
+
+      if (clock1 < clock2) {
+        inverse = true;
+        ofSetColor(0,0, 0);
+      } else {
+        if (var > 30) {
+          inverse = false;
+          ofSetColor(255,165, 0);
+        }
+      }
+
       rotation += 0.5;
       ofRotate(rotation, 0, 0, 1);
 
@@ -306,7 +358,6 @@ void ofApp::draw(){
 
       for (int i = 0; i < 50; i ++) {
         for (int j = 0; j < 50; j ++) {
-          ofSetColor(255,165, 0);
 
           // draw
           ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
@@ -328,7 +379,6 @@ void ofApp::draw(){
 
       for (int i = 0; i < 50; i ++) {
         for (int j = 0; j < 50; j ++) {
-          ofSetColor(255,165, 0);
 
           // draw
           ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
@@ -350,7 +400,6 @@ void ofApp::draw(){
 
       for (int i = 0; i < 50; i ++) {
         for (int j = 0; j < 50; j ++) {
-          ofSetColor(255,165, 0);
 
           // draw
           ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
