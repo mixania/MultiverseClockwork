@@ -35,7 +35,12 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  ofBackground(0, 0, 0);
+  if (inverse) {
+    // orange background
+    ofBackground(255,165, 0);
+  } else {
+    ofBackground(0, 0, 0);
+  }
 
 
   // Animation 1
@@ -70,6 +75,7 @@ void ofApp::draw(){
   }
 
   // Animation 3
+  // Inception circles
   else if (ofGetElapsedTimeMillis() < 50000) {
     if (loopCount % 2 == 0) {
       var ++;
@@ -103,6 +109,7 @@ void ofApp::draw(){
   }
 
   // Animation 4a
+  // closing and opening sqaures
   else if (ofGetElapsedTimeMillis() < 60000) {
     int clock1 = (loopCount % 100);
     int clock2 = ((loopCount - 50) % 100);
@@ -357,7 +364,18 @@ void ofApp::draw(){
 
   // Animation 7
   // Clock
-  else if (ofGetElapsedTimeMillis() < 190000) {
+   else if (ofGetElapsedTimeMillis() < 190000) {
+
+    int clock1 = (loopCount % 300);
+    int clock2 = ((loopCount - 150) % 300);
+
+    if (clock1 < clock2) {
+      inverse = true;
+    } else {
+      if (var > 30) {
+        inverse = false;
+      }
+    }
 
     int hourHand = ofMap(loopCount % 60, 0, 60, 0, 12);
 
@@ -365,10 +383,22 @@ void ofApp::draw(){
     for(int i = 0; i < 12; i++){
       if (hourHand == i) {
         // hightlight clock color
-        ofSetColor(255,165, 0, 255);
+
+        // check if inverse
+        if (inverse) {
+          ofSetColor(0,0, 0);
+        } else {
+          // default
+          ofSetColor(255,165, 0);
+        }
       } else {
         // the rest of the 11 digits,
-        ofSetColor(255,165, 0, 120);
+        if (inverse) {
+          ofSetColor(0,0, 0, 120);
+        } else {
+          // default
+          ofSetColor(255,165, 0, 120);
+        }
       }
 
       ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 + 150,100 * sin(incrementalAngle) + ofGetWidth()/2 - 100, circleSize, circleSize);

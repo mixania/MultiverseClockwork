@@ -48,4 +48,5 @@ class ofApp : public ofBaseApp{
 
 		// animation 7
 		float incrementalAngle;
+		bool inverse;
 };
