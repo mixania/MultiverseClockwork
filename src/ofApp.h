@@ -42,7 +42,7 @@ class ofApp : public ofBaseApp{
 		int arrayLengths;
 
 		// animation 5
-
 		int minus;
 
+		// animation 6
 };

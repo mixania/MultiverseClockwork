@@ -4,7 +4,7 @@
 void ofApp::setup(){
   mySound.load("orange.mp3");
   mySound.play();
-  mySound.setVolume(0.2);
+  mySound.setVolume(0.8);
 
   ofBackground(0, 0, 0);
 
@@ -167,7 +167,7 @@ void ofApp::draw(){
   }
 
   // Animation 4c
-  else if (ofGetElapsedTimeMillis() < 80000) {
+  else if (ofGetElapsedTimeMillis() < 90000) {
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 50) % 300);
 
@@ -184,7 +184,6 @@ void ofApp::draw(){
     }
 
     int randomCircleSize = ofRandom(circleSize - 2, circleSize + 2);
-
     rotation += 0.5;
     ofRotate(rotation, 1, 0.5, 0.1);
 
@@ -202,11 +201,19 @@ void ofApp::draw(){
     }
   }
 
-  // Animation 5
-  else if (ofGetElapsedTimeMillis() < 100000) {
+  // Animation 5a
+  else if (ofGetElapsedTimeMillis() < 110000) {
 
-    if (loopCount % 20 ) {
-      minus ++;
+    var2 = 100;
+
+    rotation += 0.5;
+    ofRotate(rotation, 1, 0, 0);
+
+    if (loopCount % 50 ) {
+      if (minus < 60 ) {
+        minus ++;
+
+      }
     }
 
     for (int i = 0; i < 50; i ++) {
@@ -214,16 +221,141 @@ void ofApp::draw(){
         ofSetColor(255,165, 0);
 
         // draw
-        ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 + var2*j, circleSize*5 - minus, circleSize*5 - minus);
-        ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 - var2*j, circleSize*5 - minus, circleSize*5 - minus);
-        ofDrawEllipse(ofGetWidth()/2 - var2*i, ofGetHeight()/2 + var2*j, circleSize*5 - minus, circleSize*5 - minus);
-        ofDrawEllipse(ofGetWidth()/2 - var2*i, ofGetHeight()/2 - var2*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
 
       }
     }
   }
 
+  // Animation 5b
+  else if (ofGetElapsedTimeMillis() < 130000) {
 
+    rotation += 0.5;
+    ofRotate(rotation, 0, 1, 0);
+
+    if (loopCount % 50 ) {
+      if (minus < 60 ) {
+        minus ++;
+
+      }
+    }
+
+    for (int i = 0; i < 50; i ++) {
+      for (int j = 0; j < 50; j ++) {
+        ofSetColor(255,165, 0);
+
+        // draw
+        ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+
+      }
+    }
+  }
+
+  // Animation 5c
+  else if (ofGetElapsedTimeMillis() < 150000) {
+
+    rotation += 0.5;
+    ofRotate(rotation, 0, 0, 1);
+
+    if (loopCount % 50 ) {
+      if (minus < 60 ) {
+        minus ++;
+
+      }
+    }
+
+    for (int i = 0; i < 50; i ++) {
+      for (int j = 0; j < 50; j ++) {
+        ofSetColor(255,165, 0);
+
+        // draw
+        ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+        ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+
+      }
+    }
+  }
+
+  // Animation 6
+    else if (ofGetElapsedTimeMillis() < 180000) {
+
+      rotation += 0.5;
+      ofRotate(rotation, 0, 0, 1);
+
+      if (loopCount % 50 ) {
+        if (minus < 60 ) {
+          minus ++;
+
+        }
+      }
+
+      for (int i = 0; i < 50; i ++) {
+        for (int j = 0; j < 50; j ++) {
+          ofSetColor(255,165, 0);
+
+          // draw
+          ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+
+        }
+      }
+
+      rotation += 0.5;
+      ofRotate(rotation, 0, 1, 0);
+
+      if (loopCount % 50 ) {
+        if (minus < 60 ) {
+          minus ++;
+
+        }
+      }
+
+      for (int i = 0; i < 50; i ++) {
+        for (int j = 0; j < 50; j ++) {
+          ofSetColor(255,165, 0);
+
+          // draw
+          ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+
+        }
+      }
+
+      rotation += 0.5;
+      ofRotate(rotation, 1, 0, 0);
+
+      if (loopCount % 50 ) {
+        if (minus < 60 ) {
+          minus ++;
+
+        }
+      }
+
+      for (int i = 0; i < 50; i ++) {
+        for (int j = 0; j < 50; j ++) {
+          ofSetColor(255,165, 0);
+
+          // draw
+          ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+          ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
+
+        }
+      }
+  }
 }
 
 //--------------------------------------------------------------
