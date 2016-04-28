@@ -8,9 +8,14 @@ void ofApp::setup(){
 
   ofBackground(0, 0, 0);
 
-  circleSize = 30;
+  // animation 2
   fadeIn = 125;
+
+  // animation 3
   var = 100;
+
+  // animation 4b
+  arrayLengths = 4;
 }
 
 //--------------------------------------------------------------
@@ -116,7 +121,7 @@ void ofApp::draw(){
   }
 
   // Animation 4b
-  else if (ofGetElapsedTimeMillis() < 70000) {
+  else if (ofGetElapsedTimeMillis() < 75000) {
     int clock1 = (loopCount % 100);
     int clock2 = ((loopCount - 50) % 100);
 
@@ -126,48 +131,61 @@ void ofApp::draw(){
       var2 --;
     }
 
+    if (clock1 == 0) {
+      arrayLengths ++;
+    }
+
     rotation += 0.5;
     ofRotate(rotation, 1, 0.5, 0.1);
 
-    for (int i = 0; i < 4; i ++) {
-      for (int j = 0; j < 4; j ++) {
+    for (int i = 0; i < arrayLengths; i ++) {
+      for (int j = 0; j < arrayLengths; j ++) {
         ofSetColor(255,165, 0);
 
         // draw
-        ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 + var2*j, 45, 45);
-        ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 - var2*j, 45, 45);
-        ofDrawEllipse(ofGetWidth()/2 - var2*i, ofGetHeight()/2 + var2*j, 45, 45);
-        ofDrawEllipse(ofGetWidth()/2 - var2*i, ofGetHeight()/2 - var2*j, 45, 45);
-
-      }
-    }
-
-    for (int i = 0; i < 4; i ++) {
-      for (int j = 0; j < 4; j ++) {
-        ofSetColor(255,165, 0);
-
-        // draw
-        ofDrawEllipse(var2*i, var2*j, 45, 45);
-        ofDrawEllipse(var2*i, var2*j, 45, 45);
-        ofDrawEllipse(var2*i, var2*j, 45, 45);
-        ofDrawEllipse(var2*i, var2*j, 45, 45);
-
-      }
-    }
-
-    for (int i = 0; i < 4; i ++) {
-      for (int j = 0; j < 4; j ++) {
-        ofSetColor(255,165, 0);
-
-        // draw
-        ofDrawEllipse(ofGetWidth() + var2*i, ofGetHeight() + var2*j, 45, 45);
-        ofDrawEllipse(ofGetWidth() + var2*i, ofGetHeight() - var2*j, 45, 45);
-        ofDrawEllipse(ofGetWidth() - var2*i, ofGetHeight() + var2*j, 45, 45);
-        ofDrawEllipse(ofGetWidth() - var2*i, ofGetHeight() - var2*j, 45, 45);
+        ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 + var2*j, 20, 20);
+        ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 - var2*j, 20, 20);
+        ofDrawEllipse(ofGetWidth()/2 - var2*i, ofGetHeight()/2 + var2*j, 20, 20);
+        ofDrawEllipse(ofGetWidth()/2 - var2*i, ofGetHeight()/2 - var2*j, 20, 20);
 
       }
     }
   }
+
+  // Animation 4c
+  else if (ofGetElapsedTimeMillis() < 75000) {
+    int clock1 = (loopCount % 100);
+    int clock2 = ((loopCount - 50) % 100);
+
+    if (clock1 < clock2) {
+      var2 ++;
+    } else {
+      var2 --;
+    }
+
+    if (clock1 == 0) {
+      arrayLengths ++;
+    }
+
+    int randomCircleSize = ofRandom(18,22);
+
+    rotation += 0.5;
+    ofRotate(rotation, 1, 0.5, 0.1);
+
+    for (int i = 0; i < arrayLengths; i ++) {
+      for (int j = 0; j < arrayLengths; j ++) {
+        ofSetColor(255,165, 0);
+
+        // draw
+        ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 + var2*j, 20, 20);
+        ofDrawEllipse(ofGetWidth()/2 + var2*i, ofGetHeight()/2 - var2*j, 20, 20);
+        ofDrawEllipse(ofGetWidth()/2 - var2*i, ofGetHeight()/2 + var2*j, 20, 20);
+        ofDrawEllipse(ofGetWidth()/2 - var2*i, ofGetHeight()/2 - var2*j, 20, 20);
+
+      }
+    }
+  }
+
 
 }
 
