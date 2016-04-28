@@ -316,7 +316,6 @@ void ofApp::draw(){
       if (loopCount % 50 ) {
         if (minus < 60 ) {
           minus ++;
-
         }
       }
 
@@ -329,7 +328,6 @@ void ofApp::draw(){
           ofDrawEllipse(ofGetWidth()/2 + (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
           ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 + (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
           ofDrawEllipse(ofGetWidth()/2 - (var2 + minus)*i, ofGetHeight()/2 - (var2 + minus)*j, circleSize*5 - minus, circleSize*5 - minus);
-
         }
       }
 
@@ -355,6 +353,18 @@ void ofApp::draw(){
 
         }
       }
+  }
+
+  // Animation 7
+  // Clock
+  else if (ofGetElapsedTimeMillis() < 190000) {
+    ofSetColor(255,165, 0);
+    float angle = incrementalAngle;
+    for(int i = 0; i < 12; i++){
+      ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2,100 * sin(incrementalAngle) + ofGetWidth()/2, circleSize, circleSize);
+
+      incrementalAngle += 6.2831853071795 / 12;
+    }
   }
 }
 

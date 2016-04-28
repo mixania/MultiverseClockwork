@@ -45,4 +45,7 @@ class ofApp : public ofBaseApp{
 		int minus;
 
 		// animation 6
+
+		// animation 7
+		float incrementalAngle;
 };
