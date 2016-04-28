@@ -32,6 +32,10 @@ class ofApp : public ofBaseApp{
 
 		// animation 3
 		int var;
+
+		// animation 4
+		int var2;
 		int circleSize;
+		float rotation;
 
 };
