@@ -22,6 +22,19 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		ofSoundPlayer mySound;
+
+		// ANIMATION START TIMES
+		int animation1Time;
+		int animation2Time;
+		int animation3Time;
+		int animation4aTime;
+		int animation4bTime;
+		int animation4cTime;
+		int animation5aTime;
+		int animation5bTime;
+		int animation5cTime;
+		int animation6Time;
+		int animation7Time;
 		int loopCount;
 
 		// aniamtion 1
