@@ -1,4 +1,4 @@
-## MultiDimensionalClockwork
+## Multiverse Clockwork"
 
 **Copyright material used:**
 

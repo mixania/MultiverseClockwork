@@ -4,22 +4,22 @@
 void ofApp::setup(){
   mySound.load("orange.mp3");
   mySound.play();
-  mySound.setVolume(0.01);
+  mySound.setVolume(1.0);
 
   // animation end times:
-  animation1Time = 20000;
-  animation2Time = 35000;
-  animation3Time = 54000;
+  animation1Time = 22000;
+  animation2Time = 34000;
+  animation3Time = 45000;
   animation4aTime = 60000;
-  animation4bTime = 75000;
-  animation4cTime = 90000;
-  animation5aTime = 117000;
-  animation5bTime = 125000;
-  animation5cTime = 122000;
-  animation6Time = 170000;
-  animation7Time = 190000;
-  animation8Time = 210000;
-  animation9Time = 225000;
+  animation4bTime = 65000;
+  animation4cTime = 75000;
+  animation5aTime = 90000;
+  animation5bTime = 105000;
+  animation5cTime = 120000;
+  animation6Time = 135000;
+  animation7Time = 150000;
+  animation8Time = 170000;
+  animation9Time = 190000;
 
   resetTime = 0;
 
@@ -62,7 +62,11 @@ void ofApp::draw(){
   // Animation 1
   // Fading randomn circle
   if (ofGetElapsedTimeMillis() < animation1Time) {
-    ofDrawBitmapStringHighlight("Clockwork", ofGetWidth()/2,  ofGetHeight()/2);
+    ofDrawBitmapStringHighlight("Multiverse Clockwork", 40,  ofGetHeight()/4*3);
+    ofDrawBitmapStringHighlight("©2016 Michael Braverman", 40,  ofGetHeight()/4*3 + 25);
+    ofDrawBitmapStringHighlight("Music:", 40,  ofGetHeight()/4*3 + 60);
+    ofDrawBitmapStringHighlight("ClockWork Orange - Funeral Of Queen Mary", 40,  ofGetHeight()/4*3 + 75);
+    ofDrawBitmapStringHighlight("Deadmau5 - Clockwork", 40,  ofGetHeight()/4*3 + 100);
     ofSetColor((int)ofRandom(50,200),(int)ofRandom(50,200),(int)ofRandom(50,200), fadeIn);
     ofDrawEllipse(ofGetWidth()/2, ofGetHeight()/2 - 100, 70, 70);
     fadeIn2 = 0;
@@ -93,7 +97,7 @@ void ofApp::draw(){
 
   // Animation 3
   // Inception circles
-  else if (ofGetElapsedTimeMillis() - resetTime < animation3Time) {
+  else if (ofGetElapsedTimeMillis() + resetTime < animation3Time) {
     if (loopCount % 2 == 0) {
       var ++;
     }
@@ -586,6 +590,8 @@ void ofApp::draw(){
       }
     }
   } else {
+
+    // loop animations 4 throught 10
     resetTime = ofGetElapsedTimeMillis();
   }
 }
