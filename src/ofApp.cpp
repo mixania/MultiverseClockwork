@@ -4,7 +4,7 @@
 void ofApp::setup(){
   mySound.load("orange.mp3");
   mySound.play();
-  mySound.setVolume(0.8);
+  mySound.setVolume(0.01);
 
   // animation end times:
   animation1Time = 20000;
@@ -18,6 +18,8 @@ void ofApp::setup(){
   animation5cTime = 122000;
   animation6Time = 170000;
   animation7Time = 190000;
+  animation8Time = 210000;
+  animation9Time = 210000;
 
   ofBackground(0, 0, 0);
 
@@ -430,17 +432,9 @@ void ofApp::draw(){
   }
 
 
-  // statement if continued
-  else if (ofGetElapsedTimeMillis() < animation7Time) {
-
-  #else
-
   // Animation 7
   // Clock
-  else (ofGetElapsedTimeMillis() < animation7Time) {
-
-  #endif
-
+  else if (ofGetElapsedTimeMillis() < animation7Time) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -478,12 +472,128 @@ void ofApp::draw(){
       }
 
       ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 + 150,100 * sin(incrementalAngle) + ofGetWidth()/2 - 100, circleSize, circleSize);
-      incrementalAngle += 6.2831853071795 / 12;
+      incrementalAngle += 6.2831853071795864769252867665590057683943387987502/ 12;
+    }
+
+    var3 = 0;
+  }
+
+  // Animation 8
+  // Multiple Clocks spread
+  else if (ofGetElapsedTimeMillis() < animation8Time) {
+
+  int clock1 = (loopCount % 300);
+  int clock2 = ((loopCount - 150) % 300);
+
+  if (clock1 < clock2) {
+    inverse = true;
+  } else {
+    if (var > 30) {
+      inverse = false;
     }
   }
-  // Animation 8
-  // Multiple Clocks
 
+  int hourHand = ofMap(loopCount % 60, 0, 60, 0, 12);
+  int distanceBetweenClocks = 250;
+
+  rotation += 0.5;
+  ofRotate(rotation, 1, 0.5, 0);
+
+
+  for(int m = 0; m < 10; m++){
+    for(int n = 0; n < 10; n++){
+      for(int i = 0; i < 12; i++){
+        if (hourHand == i) {
+          // hightlight clock color
+
+          // check if inverse
+          if (inverse) {
+            ofSetColor(0,0, 0);
+          } else {
+            // default
+            ofSetColor(255,165, 0);
+          }
+        } else {
+          // the rest of the 11 digits,
+          if (inverse) {
+            ofSetColor(0,0, 0, 120);
+          } else {
+            // default
+            ofSetColor(255,165, 0, 120);
+          }
+        }
+
+        ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 + distanceBetweenClocks*m,100 * sin(incrementalAngle) + ofGetWidth()/2 + distanceBetweenClocks*n, circleSize, circleSize);
+        ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 - distanceBetweenClocks*m,100 * sin(incrementalAngle) + ofGetWidth()/2 + distanceBetweenClocks*n, circleSize, circleSize);
+        ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 + distanceBetweenClocks*m,100 * sin(incrementalAngle) + ofGetWidth()/2 - distanceBetweenClocks*n, circleSize, circleSize);
+        ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 - distanceBetweenClocks*m,100 * sin(incrementalAngle) + ofGetWidth()/2 - distanceBetweenClocks*n, circleSize, circleSize);
+        incrementalAngle += 6.2831853071795864769252867665590057/ 12;
+        }
+      }
+    }
+  }
+
+  // Animation 9
+  // Multiple Clocks spread
+  else if (ofGetElapsedTimeMillis() < animation9Time) {
+
+  #else
+
+  // Animation 9
+  // Multiple Clocks spread
+  if (ofGetElapsedTimeMillis() < animation9Time) {
+
+    #endif
+
+    int clock1 = (loopCount % 300);
+    int clock2 = ((loopCount - 150) % 300);
+
+    if (clock1 < clock2) {
+      inverse = true;
+    } else {
+      if (var > 30) {
+        inverse = false;
+      }
+    }
+
+    int hourHand = ofMap(loopCount % 60, 0, 60, 0, 12);
+    int distanceBetweenClocks = 250;
+
+    rotation += 0.5;
+    ofRotate(rotation, 0, 1, 1);
+
+    for(int m = 0; m < 10; m++){
+      for(int n = 0; n < 10; n++){
+        for(int i = 0; i < 12; i++){
+          if (hourHand == i) {
+            // hightlight clock color
+
+            // check if inverse
+            if (inverse) {
+              ofSetColor(0,0, 0);
+            } else {
+              // default
+              ofSetColor(255,165, 0);
+            }
+          } else {
+            // the rest of the 11 digits,
+            if (inverse) {
+              ofSetColor(0,0, 0, 120);
+            } else {
+              // default
+              ofSetColor(255,165, 0, 120);
+            }
+          }
+
+          ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 + distanceBetweenClocks*m,100 * sin(incrementalAngle) + ofGetWidth()/2 + distanceBetweenClocks*n, circleSize, circleSize);
+          ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 - distanceBetweenClocks*m,100 * sin(incrementalAngle) + ofGetWidth()/2 + distanceBetweenClocks*n, circleSize, circleSize);
+          ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 + distanceBetweenClocks*m,100 * sin(incrementalAngle) + ofGetWidth()/2 - distanceBetweenClocks*n, circleSize, circleSize);
+          ofDrawEllipse(100 * cos(incrementalAngle) + ofGetHeight()/2 - distanceBetweenClocks*m,100 * sin(incrementalAngle) + ofGetWidth()/2 - distanceBetweenClocks*n, circleSize, circleSize);
+          incrementalAngle += 6.2831853071795864769252867665590057683943387987502/ 12;
+        }
+      }
+    }
+  }
 }
 
 //--------------------------------------------------------------

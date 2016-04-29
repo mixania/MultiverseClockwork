@@ -35,6 +35,8 @@ class ofApp : public ofBaseApp{
 		int animation5cTime;
 		int animation6Time;
 		int animation7Time;
+		int animation8Time;
+		int animation9Time;
 		int loopCount;
 
 		// aniamtion 1
@@ -62,4 +64,7 @@ class ofApp : public ofBaseApp{
 		// animation 7
 		float incrementalAngle;
 		bool inverse;
+
+		// animation 8
+		int var3;
 };
