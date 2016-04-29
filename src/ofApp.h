@@ -39,6 +39,8 @@ class ofApp : public ofBaseApp{
 		int animation9Time;
 		int loopCount;
 
+		int resetTime;
+
 		// aniamtion 1
 		int fadeIn;
 		int circleSize;

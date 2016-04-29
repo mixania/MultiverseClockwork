@@ -19,7 +19,9 @@ void ofApp::setup(){
   animation6Time = 170000;
   animation7Time = 190000;
   animation8Time = 210000;
-  animation9Time = 210000;
+  animation9Time = 225000;
+
+  resetTime = 0;
 
   ofBackground(0, 0, 0);
 
@@ -57,9 +59,6 @@ void ofApp::draw(){
     ofBackground(0, 0, 0);
   }
 
-  // for debuging animations that are last in sequence
-  #if 1
-
   // Animation 1
   // Fading randomn circle
   if (ofGetElapsedTimeMillis() < animation1Time) {
@@ -94,7 +93,7 @@ void ofApp::draw(){
 
   // Animation 3
   // Inception circles
-  else if (ofGetElapsedTimeMillis() < animation3Time) {
+  else if (ofGetElapsedTimeMillis() - resetTime < animation3Time) {
     if (loopCount % 2 == 0) {
       var ++;
     }
@@ -128,7 +127,7 @@ void ofApp::draw(){
 
   // Animation 4a
   // closing and opening circles
-  else if (ofGetElapsedTimeMillis() < animation4aTime) {
+  else if ((ofGetElapsedTimeMillis() + resetTime) < animation4aTime) {
     int clock1 = (loopCount % 100);
     int clock2 = ((loopCount - 50) % 100);
 
@@ -159,7 +158,7 @@ void ofApp::draw(){
 
   // Animation 4b
   // growing circles
-  else if (ofGetElapsedTimeMillis() < animation4bTime) {
+  else if ((ofGetElapsedTimeMillis() + resetTime) < animation4bTime) {
     int clock1 = (loopCount % 100);
     int clock2 = ((loopCount - 50) % 100);
 
@@ -194,7 +193,7 @@ void ofApp::draw(){
 
   // Animation 4c
   // "Un-suspended dimensions circles"
-  else if (ofGetElapsedTimeMillis() < animation4cTime ) {
+  else if ((ofGetElapsedTimeMillis() + resetTime) < animation4cTime ) {
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 50) % 300);
 
@@ -232,7 +231,7 @@ void ofApp::draw(){
   }
 
   // Animation 5a
-  else if (ofGetElapsedTimeMillis() < animation5aTime) {
+  else if ((ofGetElapsedTimeMillis() + resetTime) < animation5aTime) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -273,7 +272,7 @@ void ofApp::draw(){
   }
 
   // Animation 5b
-  else if (ofGetElapsedTimeMillis() < animation5bTime) {
+  else if ((ofGetElapsedTimeMillis() + resetTime) < animation5bTime) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -312,7 +311,7 @@ void ofApp::draw(){
   }
 
   // Animation 5c
-  else if (ofGetElapsedTimeMillis() < animation5cTime) {
+  else if ((ofGetElapsedTimeMillis() + resetTime) < animation5cTime) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -351,7 +350,7 @@ void ofApp::draw(){
   }
 
   // Animation 6
-    else if (ofGetElapsedTimeMillis() < animation6Time) {
+    else if ((ofGetElapsedTimeMillis() + resetTime) < animation6Time) {
 
       int clock1 = (loopCount % 300);
       int clock2 = ((loopCount - 150) % 300);
@@ -434,7 +433,7 @@ void ofApp::draw(){
 
   // Animation 7
   // Clock
-  else if (ofGetElapsedTimeMillis() < animation7Time) {
+  else if (ofGetElapsedTimeMillis() + resetTime < animation7Time) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -480,7 +479,7 @@ void ofApp::draw(){
 
   // Animation 8
   // Multiple Clocks spread
-  else if (ofGetElapsedTimeMillis() < animation8Time) {
+  else if ((ofGetElapsedTimeMillis() + resetTime) < animation8Time) {
 
   int clock1 = (loopCount % 300);
   int clock2 = ((loopCount - 150) % 300);
@@ -533,17 +532,10 @@ void ofApp::draw(){
     }
   }
 
-  // Animation 9
+  // Animation 10
   // Multiple Clocks spread
-  else if (ofGetElapsedTimeMillis() < animation9Time) {
+  else if ((ofGetElapsedTimeMillis() + resetTime )< animation9Time) {
 
-  #else
-
-  // Animation 9
-  // Multiple Clocks spread
-  if (ofGetElapsedTimeMillis() < animation9Time) {
-
-    #endif
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -593,6 +585,8 @@ void ofApp::draw(){
         }
       }
     }
+  } else {
+    resetTime = ofGetElapsedTimeMillis();
   }
 }
 
