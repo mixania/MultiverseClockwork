@@ -39,27 +39,27 @@ class ofApp : public ofBaseApp{
 		int animation9Time;
 		int loopCount;
 
-		int resetTime;
+		double resetTime;
 
 		// aniamtion 1
-		int fadeIn;
+		double  fadeIn;
 		int circleSize;
 
 		// animation 2
-		int fadeIn2;
+		double  fadeIn2;
 
 		// animation 3
-		int var;
+		double  var;
 
 		// animation 4a
-		int var2;
+		double  var2;
 		float rotation;
 
 		// animation 4b and 4c
 		int arrayLengths;
 
 		// animation 5
-		int minus;
+		double  minus;
 
 		// animation 6
 
@@ -68,5 +68,5 @@ class ofApp : public ofBaseApp{
 		bool inverse;
 
 		// animation 8
-		int var3;
+		double var3;
 };

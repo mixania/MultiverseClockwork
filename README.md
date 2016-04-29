@@ -1,4 +1,5 @@
-## Multiverse Clockwork"
+## Multiverse Clockwork
+An openFrameworks project inspired by Clockwork Orange and nihilistic theoretical physics
 
 **Copyright material used:**
 

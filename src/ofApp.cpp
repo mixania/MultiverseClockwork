@@ -12,7 +12,7 @@ void ofApp::setup(){
   animation3Time = 45000;
   animation4aTime = 60000;
   animation4bTime = 65000;
-  animation4cTime = 75000;
+  animation4cTime = 70000;
   animation5aTime = 90000;
   animation5bTime = 105000;
   animation5cTime = 120000;
@@ -62,11 +62,13 @@ void ofApp::draw(){
   // Animation 1
   // Fading randomn circle
   if (ofGetElapsedTimeMillis() < animation1Time) {
-    ofDrawBitmapStringHighlight("Multiverse Clockwork", 40,  ofGetHeight()/4*3);
-    ofDrawBitmapStringHighlight("©2016 Michael Braverman", 40,  ofGetHeight()/4*3 + 25);
-    ofDrawBitmapStringHighlight("Music:", 40,  ofGetHeight()/4*3 + 60);
-    ofDrawBitmapStringHighlight("ClockWork Orange - Funeral Of Queen Mary", 40,  ofGetHeight()/4*3 + 75);
-    ofDrawBitmapStringHighlight("Deadmau5 - Clockwork", 40,  ofGetHeight()/4*3 + 100);
+
+    ofDrawBitmapStringHighlight("'Multiverse Clockwork'", 20,  ofGetHeight()-95);
+    ofDrawBitmapStringHighlight("©2016 Michael Braverman", 20,  ofGetHeight()-80);
+    ofDrawBitmapStringHighlight("Music:", 20,  ofGetHeight() - 50);
+    ofDrawBitmapStringHighlight("ClockWork Orange - Funeral Of Queen Mary", 40,  ofGetHeight()-35);
+    ofDrawBitmapStringHighlight("Deadmau5 - Clockwork", 40,  ofGetHeight()-20);
+
     ofSetColor((int)ofRandom(50,200),(int)ofRandom(50,200),(int)ofRandom(50,200), fadeIn);
     ofDrawEllipse(ofGetWidth()/2, ofGetHeight()/2 - 100, 70, 70);
     fadeIn2 = 0;
@@ -75,6 +77,7 @@ void ofApp::draw(){
   // Animation 2
   // Random Lines and Fading Circle
   else if (ofGetElapsedTimeMillis() < animation2Time) {
+
     if (loopCount % 2 == 0 && fadeIn2 < 255) {
       fadeIn2++;
     }
@@ -93,11 +96,16 @@ void ofApp::draw(){
     ofSetColor(255,165, 0, fadeIn2);
     ofDrawEllipse(ofGetWidth()/2, ofGetHeight()/2, 300 - fadeIn2, 300 - fadeIn2);
     var = 0;
+
+    ofDrawBitmapStringHighlight("Chapter 2", 40,  ofGetHeight()-60);
+    ofDrawBitmapStringHighlight("The universe is born within a womb of unknown substance..", 40,  ofGetHeight()-40);
   }
 
   // Animation 3
   // Inception circles
-  else if (ofGetElapsedTimeMillis() + resetTime < animation3Time) {
+  else if (ofGetElapsedTimeMillis()< animation3Time ) {
+
+    inverse = false;
     if (loopCount % 2 == 0) {
       var ++;
     }
@@ -127,11 +135,15 @@ void ofApp::draw(){
         }
       }
     }
+    ofDrawBitmapStringHighlight("Chapter 3", 40,  ofGetHeight()-60);
+    ofDrawBitmapStringHighlight("Other universes are born within universes", 40,  ofGetHeight()-40);
   }
 
   // Animation 4a
   // closing and opening circles
-  else if ((ofGetElapsedTimeMillis() + resetTime) < animation4aTime) {
+  else if (ofGetElapsedTimeMillis() < animation4aTime + resetTime ) {
+
+    inverse = false;
     int clock1 = (loopCount % 100);
     int clock2 = ((loopCount - 50) % 100);
 
@@ -158,11 +170,15 @@ void ofApp::draw(){
 
       }
     }
+    // ofDrawBitmapStringHighlight("Chapter 4a", 40,  ofGetHeight()-60);
+    // ofDrawBitmapStringHighlight("Universes expand and contract...", 40,  ofGetHeight()-40);
   }
 
   // Animation 4b
   // growing circles
-  else if ((ofGetElapsedTimeMillis() + resetTime) < animation4bTime) {
+  else if (ofGetElapsedTimeMillis() < animation4bTime + resetTime ) {
+    inverse = false;
+
     int clock1 = (loopCount % 100);
     int clock2 = ((loopCount - 50) % 100);
 
@@ -193,11 +209,15 @@ void ofApp::draw(){
 
       }
     }
+
+    // ofDrawBitmapStringHighlight("Chapter 4b", 40,  ofGetHeight()-60);
+    // ofDrawBitmapStringHighlight("some grow bigger...", 40,  ofGetHeight()-40);
   }
 
   // Animation 4c
   // "Un-suspended dimensions circles"
-  else if ((ofGetElapsedTimeMillis() + resetTime) < animation4cTime ) {
+  else if (ofGetElapsedTimeMillis() < animation4cTime + resetTime ) {
+
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 50) % 300);
 
@@ -218,7 +238,7 @@ void ofApp::draw(){
     }
 
     int randomCircleSize = ofRandom(circleSize - 2, circleSize + 2);
-    rotation += 0.5;
+    rotation += 0.25;
     ofRotate(rotation, 1, 0.5, 0.1);
 
     for (int i = 0; i < arrayLengths; i ++) {
@@ -232,10 +252,12 @@ void ofApp::draw(){
 
       }
     }
+    // ofDrawBitmapStringHighlight("Chapter 4c", 40,  ofGetHeight()-60);
+    // ofDrawBitmapStringHighlight("and some seem infinite...", 40,  ofGetHeight()-40);
   }
 
   // Animation 5a
-  else if ((ofGetElapsedTimeMillis() + resetTime) < animation5aTime) {
+  else if (ofGetElapsedTimeMillis() < animation5aTime + resetTime ) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -276,7 +298,7 @@ void ofApp::draw(){
   }
 
   // Animation 5b
-  else if ((ofGetElapsedTimeMillis() + resetTime) < animation5bTime) {
+  else if (ofGetElapsedTimeMillis() < animation5bTime + resetTime) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -312,10 +334,13 @@ void ofApp::draw(){
 
       }
     }
+
+    // ofDrawBitmapStringHighlight("Chapter 5a", 40,  ofGetHeight()-60);
+    // ofDrawBitmapStringHighlight("Some shave multiple dimensions...", 40,  ofGetHeight()-40);
   }
 
   // Animation 5c
-  else if ((ofGetElapsedTimeMillis() + resetTime) < animation5cTime) {
+  else if (ofGetElapsedTimeMillis()< animation5cTime + resetTime ) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -354,7 +379,7 @@ void ofApp::draw(){
   }
 
   // Animation 6
-    else if ((ofGetElapsedTimeMillis() + resetTime) < animation6Time) {
+    else if (ofGetElapsedTimeMillis() < animation6Time + resetTime) {
 
       int clock1 = (loopCount % 300);
       int clock2 = ((loopCount - 150) % 300);
@@ -437,7 +462,7 @@ void ofApp::draw(){
 
   // Animation 7
   // Clock
-  else if (ofGetElapsedTimeMillis() + resetTime < animation7Time) {
+  else if (ofGetElapsedTimeMillis() < animation7Time + resetTime ) {
 
     int clock1 = (loopCount % 300);
     int clock2 = ((loopCount - 150) % 300);
@@ -479,11 +504,14 @@ void ofApp::draw(){
     }
 
     var3 = 0;
+
+    ofDrawBitmapStringHighlight("Chapter 7", 40,  ofGetHeight()-60);
+    ofDrawBitmapStringHighlight("This is the clockwork of one universe...", 40,  ofGetHeight()-40);
   }
 
   // Animation 8
   // Multiple Clocks spread
-  else if ((ofGetElapsedTimeMillis() + resetTime) < animation8Time) {
+  else if (ofGetElapsedTimeMillis() < animation8Time + resetTime ) {
 
   int clock1 = (loopCount % 300);
   int clock2 = ((loopCount - 150) % 300);
@@ -503,8 +531,8 @@ void ofApp::draw(){
   ofRotate(rotation, 1, 0.5, 0);
 
 
-  for(int m = 0; m < 10; m++){
-    for(int n = 0; n < 10; n++){
+  for(int m = 0; m < 20; m++){
+    for(int n = 0; n < 20; n++){
       for(int i = 0; i < 12; i++){
         if (hourHand == i) {
           // hightlight clock color
@@ -538,7 +566,7 @@ void ofApp::draw(){
 
   // Animation 10
   // Multiple Clocks spread
-  else if ((ofGetElapsedTimeMillis() + resetTime )< animation9Time) {
+  else if (ofGetElapsedTimeMillis()< animation9Time + resetTime ) {
 
 
     int clock1 = (loopCount % 300);
@@ -558,8 +586,8 @@ void ofApp::draw(){
     rotation += 0.5;
     ofRotate(rotation, 0, 1, 1);
 
-    for(int m = 0; m < 10; m++){
-      for(int n = 0; n < 10; n++){
+    for(int m = 0; m < 20; m++){
+      for(int n = 0; n < 20; n++){
         for(int i = 0; i < 12; i++){
           if (hourHand == i) {
             // hightlight clock color
@@ -589,10 +617,25 @@ void ofApp::draw(){
         }
       }
     }
-  } else {
+  }
 
-    // loop animations 4 throught 10
+  if (ofGetElapsedTimeMillis() > animation9Time + resetTime) {
     resetTime = ofGetElapsedTimeMillis();
+
+    // RESET VARIABLES
+    // animation 2
+    fadeIn = 125;
+    // animation 3
+    var = 100;
+    // animation 4b
+    arrayLengths = 4;
+
+    fadeIn2 = 2;
+    var2 = 0;
+    rotation = 0;
+    arrayLengths = 5;
+    minus = 0;
+    var3 = 0;
   }
 }
 
